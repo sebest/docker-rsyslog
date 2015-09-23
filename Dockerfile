@@ -1,10 +1,8 @@
-FROM alpine
+FROM ubuntu:15.10
 
-RUN  apk update \
-  && apk add rsyslog \
-  && rm -rf /var/cache/apk/*
-
-RUN mkdir -p /var/spool/rsyslog
+RUN  apt-get update \
+  && apt-get -y install rsyslog \
+  && apt-get clean
 
 EXPOSE 514 514/udp
 
